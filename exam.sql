@@ -169,6 +169,8 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sr_GET_MATS3`(
 	IN `pqty` DECIMAL(11,4)
 
 
+
+
 )
 BEGIN
 
@@ -190,7 +192,7 @@ CASE
 	ELSE
 		tw.rawmatsqty * (fm.qty * pqty)
 END) AS qty,
-fm.uom,
+rm.materialuom as uom,
 (
 CASE
 	WHEN tw.fgthreematsid > 0 THEN
